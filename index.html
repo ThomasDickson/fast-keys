@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <h1 id="header">fast-keys</h2>
+        <title>fast-keys</title>
+    </head>
+    <body onload="loadText()">
+        <div id="stats">
+            WPM:
+            <span id="wpm">0</span>
+            ACCURACY:
+            <span id="accuracy">0</span>
+        </div>
+        <div id="text-area">
+            <div id="word-list"></div> <!-- span's are appended in js-->
+            <div id="input-section">
+                <input type="text" id="input-field" tabindex="1">
+                <button id="reset-button" onclick="reset()">reset</button>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
