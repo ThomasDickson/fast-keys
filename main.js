@@ -4,7 +4,9 @@ const SENTENCE = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                "Nulla vulputate tristique odio nec tristique. Donec feugiat " +
                "aliquam massa nec vulputate. Donec purus arcu, faucibus a metus " +
                "id, lobortis dignissim lorem. Vivamus et iaculis eros. Cras nec " +
-               "nibh in augue vestibulum finibus quis malesuada nisi." + "Donec dapibus, massa sit amet ornare ultrices, velit purus sodales diam, at egestas dolor enim vel odio. Mauris hendrerit mattis consectetur. Morbi quis auctor odio, vitae ultrices massa. Etiam id vehicula ex, vel feugiat arcu. Morbi eget aliquet felis, vitae feugiat justo. Curabitur eleifend urna vel leo facilisis laoreet. Maecenas auctor lorem nec leo hendrerit consectetur. ";
+               "nibh in augue vestibulum finibus quis malesuada nisi." + 
+               " Donec dapibus, massa sit amet ornare ultrices, velit purus " + 
+               "sodales diam, at egestas dolor enim vel odio. Mauris hendrerit mattis consectetur.";
 
 const TIME_LIMIT = 30;
 
