@@ -4,9 +4,7 @@ const SENTENCE = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                "Nulla vulputate tristique odio nec tristique. Donec feugiat " +
                "aliquam massa nec vulputate. Donec purus arcu, faucibus a metus " +
                "id, lobortis dignissim lorem. Vivamus et iaculis eros. Cras nec " +
-               "nibh in augue vestibulum finibus quis malesuada nisi." + 
-               " Donec dapibus, massa sit amet ornare ultrices, velit purus " + 
-               "sodales diam, at egestas dolor enim vel odio. Mauris hendrerit mattis consectetur.";
+               "nibh in augue vestibulum finibus quis malesuada nisi." + " Donec dapibus, massa sit amet ornare ultrices";
 
 const TIME_LIMIT = 30;
 
@@ -22,8 +20,9 @@ let wpm = 0;
 let accuracy = 0;
 
 let wordsTyped = 0; // correct words typed
+
 let correctChars = 0;
-let incorrectChars = 0;
+let totalChars = 0;
 
 inputField.addEventListener("keyup", e => {
     let wordArray = wordList.querySelectorAll("span");
@@ -35,12 +34,14 @@ inputField.addEventListener("keyup", e => {
         if(inputField.value == wordArray[currentWord].innerText) {
             wordArray[currentWord].classList.remove("highlight");
             wordArray[currentWord].classList.add("correct");
-            
+            correctChars += wordArray[currentWord].innerHTML.length;
+            totalChars += wordArray[currentWord].innerHTML.length;
         }
 
         else if(inputField.value != wordArray[currentWord].innerText) {
             wordArray[currentWord].classList.remove("highlight");
             wordArray[currentWord].classList.add("incorrect");
+            totalChars += wordArray[currentWord].innerHTML.length;
         }
 
         wordsTyped++;
@@ -64,13 +65,14 @@ function updateTimer() {
 
 function calculateResults() {
     inputField.setAttribute('disabled',"");
+    accuracy = Math.round(correctChars / totalChars * 10) / 10;
     wpm = (wordsTyped / TIME_LIMIT) * 60;
     updateResults();
 }
 
 function updateResults() {
     document.getElementById("wpm").innerHTML = wpm;
-    document.getElementById("accuracy").innerHTML = accuracy + "%";
+    document.getElementById("accuracy").innerHTML = accuracy * 100 + "%";
 }
 
 function reset() {
