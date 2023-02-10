@@ -8,18 +8,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #3d3c3e;
+    background-color: #2A2D43;
 }
 
 #header {
     text-align: center;
-    color:  #f8119a;
+    color:  #7F2CCB;
 }
 
 #stats {
     margin-top: 2rem;
+    margin-bottom: 1.5rem;
     font-size: 1.2rem;
-    color: whitesmoke;
+    color: #a3a6ce;
     width: 40%;
 }
 
@@ -29,11 +30,11 @@ body {
     padding: 1.5rem;
     color: whitesmoke;
     border-radius: 0.6rem;
-    background-color: #757376;
+    background-color: #787ba3;
 }
 
 #word-list {
-    background-color: #bab8bb;
+    background-color: #a3a6ce;
     border-radius: 0.5rem;
     padding: 1rem;
     cursor: default; 
@@ -51,7 +52,7 @@ body {
 #input-field {
     color:whitesmoke;
     font-size: 1.5rem;
-    background-color: #3d3c3e;
+    background-color: #a3a6ce;
     border: none;
     border-radius: 0.5rem;
     width: 100%;
@@ -71,14 +72,15 @@ body {
 }
 
 .correct {
-    color: green;
+    /* #30D9B4 */
+    color: #30114D;
 }
 
 .incorrect {
-    color: red;
+    color: #D94576;
+    /*#c70330;*/
 }
 
 .highlight {
-    color: #f8119a;
-
+    color: #7F2CCB;
 }

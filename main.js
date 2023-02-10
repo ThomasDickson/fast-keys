@@ -66,7 +66,7 @@ function updateTimer() {
 function calculateResults() {
     inputField.setAttribute('disabled',"");
     accuracy = Math.round(correctChars / totalChars * 10) / 10;
-    wpm = (wordsTyped / TIME_LIMIT) * 60;
+    wpm = wordsTyped / (TIME_LIMIT / 60);
     updateResults();
 }
 
