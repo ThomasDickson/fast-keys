@@ -20,24 +20,26 @@ let wordsTyped = 0; // correct words typed
 let correctChars = 0;
 let totalChars = 0;
 
-inputField.addEventListener("keyup", e => {
+inputField.addEventListener("keydown", e => {
     let wordArray = wordList.querySelectorAll("span");
 
     if(currentWord == 0) // when first key is pressed
         startTimer();
     
-    if(e.code == 'Space') {
-        if(inputField.value == wordArray[currentWord].innerText) {
+    if(e.key === ' ') {
+        e.preventDefault();
+        
+        if(inputField.value === wordArray[currentWord].innerText.slice(0, -1)) {
             wordArray[currentWord].classList.remove("highlight");
             wordArray[currentWord].classList.add("correct");
-            correctChars += wordArray[currentWord].innerHTML.length;
-            totalChars += wordArray[currentWord].innerHTML.length;
+            correctChars += wordArray[currentWord].innerText.slice(0, -1).length;
+            totalChars += wordArray[currentWord].innerText.slice(0, -1).length;
         }
 
-        else if(inputField.value != wordArray[currentWord].innerText) {
+        else if(inputField.value !== wordArray[currentWord].innerText.slice(0, -1)) {
             wordArray[currentWord].classList.remove("highlight");
             wordArray[currentWord].classList.add("incorrect");
-            totalChars += wordArray[currentWord].innerHTML.length;
+            totalChars += wordArray[currentWord].innerText.slice(0, -1).length;
         }
 
         wordsTyped++;
@@ -65,7 +67,7 @@ function updateTimer() {
 
 function calculateResults() {
     inputField.setAttribute('disabled',"");
-    accuracy = Math.round(correctChars / totalChars * 10) / 10;
+    accuracy = Math.round(correctChars / totalChars * 100) / 100;
     wpm = wordsTyped / (TIME_LIMIT / 60);
     updateResults();
 }
@@ -82,33 +84,36 @@ function reset() {
     currentWord = 0;
     timeElapsed = 0;
     wordsTyped = 0;
+
+    wpm = 0;
+    accuracy = 0;
+    
     inputField.value = null;
     clearInterval(timer);
 
+    updateResults();
     unloadText();
     loadText();
 }
 
 function unloadText() {
     let child = wordList.lastElementChild;
-
     while(child) {
         wordList.removeChild(child);
         child = wordList.lastElementChild;
     }
-    
     words = [];
 }
 
 function loadText() {
     for(var i = 0; i < 100; i++)
     {
-        console.log(getRandomWord())
         words.push(getRandomWord());
         let wordSpan = document.createElement('span');
         wordSpan.innerText = words[i] + ' ';
         wordList.appendChild(wordSpan);
     }
+    
     
     wordList.firstChild.classList.add("highlight");
 }
