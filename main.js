@@ -108,6 +108,5 @@ function loadText() {
         wordList.appendChild(wordSpan);
     }
     
-    
     wordList.firstChild.classList.add("highlight");
 }
