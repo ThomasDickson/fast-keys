@@ -91,10 +91,12 @@ function reset() {
 
 function unloadText() {
     let child = wordList.lastElementChild;
+
     while(child) {
         wordList.removeChild(child);
         child = wordList.lastElementChild;
     }
+    
     words = [];
 }
 
