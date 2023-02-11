@@ -64,8 +64,9 @@ function updateTimer() {
     if(timeElapsed < TIME_LIMIT) {
         timeElapsed++;
         document.getElementById("timer").innerHTML = TIME_LIMIT - timeElapsed;
+    } else {
+        calculateResults();
     }
-    else calculateResults();
 }
 
 function calculateResults() {
