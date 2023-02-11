@@ -61,7 +61,10 @@ function startTimer() {
 }
 
 function updateTimer() {
-    if(timeElapsed < TIME_LIMIT) timeElapsed++;
+    if(timeElapsed < TIME_LIMIT) {
+        timeElapsed++;
+        document.getElementById("timer").innerHTML = TIME_LIMIT - timeElapsed;
+    }
     else calculateResults();
 }
 
@@ -89,6 +92,7 @@ function reset() {
     accuracy = 0;
     
     inputField.value = null;
+    document.getElementById("timer").innerHTML = TIME_LIMIT;
     clearInterval(timer);
 
     updateResults();
@@ -113,7 +117,6 @@ function loadText() {
         wordSpan.innerText = words[i] + ' ';
         wordList.appendChild(wordSpan);
     }
-    
     
     wordList.firstChild.classList.add("highlight");
 }
